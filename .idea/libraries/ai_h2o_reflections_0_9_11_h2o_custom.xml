@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="ai.h2o:reflections:0.9.11-h2o-custom" type="repository">
+    <properties maven-id="ai.h2o:reflections:0.9.11-h2o-custom" />
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/reflections-0.9.11-h2o-custom.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/guava-15.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/javassist-3.19.0-GA.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jsr305-3.0.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
