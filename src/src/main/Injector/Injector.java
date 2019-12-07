@@ -6,6 +6,7 @@ import java.lang.reflect.Parameter;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class Injector {
 
@@ -14,7 +15,8 @@ public class Injector {
 
     private static HashMap<Class<?>, Object> knots = new HashMap<>();
 
-    public Injector() {}
+    public Injector() {
+    }
 
     public Object get(Class<?> clazz) {
         Class<?> target = null;
@@ -22,32 +24,15 @@ public class Injector {
         Parameter[] parameters;
         List<Parameter> resolvedParameters;
 
-        try {
-            target = resolveType(clazz);
+        target = resolveType(clazz);
 
-            constructor = target.getConstructors()[0];
-            parameters = constructor.getParameters();
-            resolvedParameters = new ArrayList<>();
-
-            if(parameters.length != 0) {
-                for (Parameter param: resolvedParameters) {
-                    resolvedParameters.add(param);
-                }
-            } else {
-                return constructor.newInstance(parameters);
-            }
-
-            return constructor.newInstance(resolvedParameters);
+        if (knots.containsKey(target)) {
+            return knots.get(target);
         }
-        catch (IllegalAccessException iae) {}
-        catch (InvocationTargetException ite) {}
-        catch (InstantiationException ie) {}
-
-
         return null;
     }
 
-    private static Class<?> resolveType(Class<?> type) {
+    private Class<?> resolveType(Class<?> type) {
         if (knots.containsKey(type)) {
             return knots.get(type).getClass();
         }
@@ -65,6 +50,12 @@ public class Injector {
     }
 
     public void make() {
-        knots.put(selectedClass, selectedImpl);
+        if(!knots.containsKey(selectedClass)) {
+            knots.put(selectedClass, selectedImpl);
+        }
+    }
+
+    public static int size() {
+        return knots.size();
     }
 }
