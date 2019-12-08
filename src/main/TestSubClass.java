@@ -1,7 +1,7 @@
-package src.main;
+package main;
 
-import src.main.Injector.Inject;
-import src.main.Injector.Injectable;
+import main.Injector.Inject;
+import main.Injector.Injectable;
 
 @Injectable
 public class TestSubClass implements ITestSubClass {
@@ -9,8 +9,7 @@ public class TestSubClass implements ITestSubClass {
     @Inject
     private TestSubSubClass _testSubSubClass;
 
-    public TestSubClass() {}
-
+    @Override
     public void helloWorldFromSub() {
         System.out.println("Hello World from Injected Subclass!!!");
         _testSubSubClass.call(3);

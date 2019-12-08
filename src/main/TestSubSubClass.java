@@ -1,13 +1,11 @@
-package src.main;
+package main;
 
-import src.main.Injector.Injectable;
+import main.Injector.Injectable;
 
 @Injectable
 public class TestSubSubClass implements ITestSubSubClass {
 
     int timesCalled = 0;
-
-    public TestSubSubClass() {}
 
     @Override
     public void call(int times) {

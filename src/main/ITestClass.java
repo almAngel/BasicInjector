@@ -1,6 +1,4 @@
-package src.main;
-
-import java.io.Serializable;
+package main;
 
 public interface ITestClass {
     void helloWorld();

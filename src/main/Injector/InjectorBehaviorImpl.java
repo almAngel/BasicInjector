@@ -1,4 +1,4 @@
-package src.main.Injector;
+package main.Injector;
 
 import org.reflections.Reflections;
 import org.reflections.scanners.FieldAnnotationsScanner;

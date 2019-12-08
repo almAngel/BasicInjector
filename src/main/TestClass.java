@@ -1,22 +1,17 @@
-package src.main;
+package main;
 
-import src.main.Injector.Inject;
-import src.main.Injector.Injectable;
-import src.main.Injector.Injector;
-
-import java.io.Serializable;
+import main.Injector.Inject;
+import main.Injector.Injectable;
 
 @Injectable
 public class TestClass implements ITestClass {
 
     @Inject
-    TestSubClass _testSubClass;
+    private TestSubClass _testSubClass;
     @Inject
-    TestSubSubClass _testSubSubClass;
+    private TestSubSubClass _testSubSubClass;
 
-    // PUBLIC CONSTRUCTOR REQUIRED
-    public TestClass() {}
-
+    @Override
     public void helloWorld() {
         System.out.println("Hello World from Injector!!!!");
         _testSubSubClass.call(7);

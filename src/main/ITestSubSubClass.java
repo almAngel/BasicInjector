@@ -1,4 +1,4 @@
-package src.main;
+package main;
 
 public interface ITestSubSubClass {
     void call(int times);
